@@ -1,8 +1,8 @@
 FROM golang:1.9
 
-COPY . /go/src/github.com/play-with-docker/play-with-docker
+COPY . /go/src/github.com/lean-soft/play-with-docker
 
-WORKDIR /go/src/github.com/play-with-docker/play-with-docker
+WORKDIR /go/src/github.com/lean-soft/play-with-docker
 
 RUN ssh-keygen -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key >/dev/null
 
