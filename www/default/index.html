@@ -2,11 +2,13 @@
 <html ng-app="DockerPlay" ng-controller="PlayController">
     <head>
         <title>Docker Playground</title>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons" />
-        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+        <link rel="stylesheet" href="/assets/googlefonts/css/Roboto.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="/assets/libs/angular_material/1.1.0/angular-material.min.css">
         <link rel="stylesheet" href="/assets/xterm.css" />
-	<link rel="stylesheet" href="/assets/xterm-addons/fullscreen.css" />
+	    <link rel="stylesheet" href="/assets/xterm-addons/fullscreen.css" />
         <link rel="stylesheet" href="/assets/style.css" />
+        <!-- disable google analytics
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -15,6 +17,7 @@
             ga('create', 'UA-89019737-1', 'auto');
             ga('send', 'pageview');
         </script>
+        -->
     </head>
     <body>
 
@@ -294,40 +297,37 @@
                 </md-dialog-actions>
         </script>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js" integrity="sha256-A4JwlcDvqO4JXpvEtvWY1RH8JAEMu5W21wP8GUXLUNs=" crossorigin="anonymous"></script>
-	<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
+	<script src="/assets/libs/reconnecting-websocket/1.0.0/reconnecting-websocket.min.js" integrity="sha256-A4JwlcDvqO4JXpvEtvWY1RH8JAEMu5W21wP8GUXLUNs=" crossorigin="anonymous"></script>
+	<script src="/assets/libs/jquery/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
-        <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/master/dist/clipboard.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ngclipboard/1.1.2/ngclipboard.min.js"></script>
+    <script src="/assets/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="/assets/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="/assets/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="/assets/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="/assets/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="/assets/libs/clipboard/clipboard.min.js"></script>
+    <script src="/assets/libs/ngclipboard/1.1.2/ngclipboard.min.js"></script>
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload-all.min.js" integrity="sha256-LrZq3efIkFX0BooX7x/rjWyYDvMKfFV2HJpy6HBw7cE=" crossorigin="anonymous"></script>
+    <script src="/assets/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload-all.min.js" integrity="sha256-LrZq3efIkFX0BooX7x/rjWyYDvMKfFV2HJpy6HBw7cE=" crossorigin="anonymous"></script>
 
-        <script src="/assets/app.js"></script>
-        <script src="/assets/xterm.js"></script>
-        <script src="/assets/xterm-addons/fit.js"></script>
-        <script src="/assets/xterm-addons/fullscreen.js"></script>
-        <script src="/assets/attach.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.16.0/moment.min.js"></script>
+    <script src="/assets/app.js"></script>
+    <script src="/assets/xterm.js"></script>
+    <script src="/assets/xterm-addons/fit.js"></script>
+    <script src="/assets/xterm-addons/fullscreen.js"></script>
+    <script src="/assets/attach.js"></script>
+    <script src="/assets/libs/moment.js/2.16.0/moment.min.js"></script>
         <script type="text/javascript" charset="utf-8">
             window.onbeforeunload = function (e) {
                 e = e || window.event;
 
                 // For IE and Firefox prior to version 4
                 if (e) {
-                    e.returnValue = 'Make sure you saved your session URL';
+                    e.returnValue = '保存你的实验室URL，这样下次还可以进入同一个会话。';
                 }
 
                 // For Safari
-                return 'Make sure you saved your session URL';
+                return '保存你的实验室URL，这样下次还可以进入同一个会话。';
             };
         </script>
     </body>
