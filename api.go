@@ -25,7 +25,7 @@ func main() {
 	e := initEvent()
 	s := initStorage()
 	df := initDockerFactory(s)
-	kf := initK8sFactory(s)
+	//kf := initK8sFactory(s)
 
 	ipf := provisioner.NewInstanceProvisionerFactory(provisioner.NewWindowsASG(df, s), provisioner.NewDinD(id.XIDGenerator{}, df, s))
 	sp := provisioner.NewOverlaySessionProvisioner(df)
@@ -37,8 +37,8 @@ func main() {
 		task.NewCheckSwarmPorts(e, df),
 		task.NewCheckSwarmStatus(e, df),
 		task.NewCollectStats(e, df, s),
-		task.NewCheckK8sClusterStatus(e, kf),
-		task.NewCheckK8sClusterExposedPorts(e, kf),
+		//task.NewCheckK8sClusterStatus(e, kf),
+		//task.NewCheckK8sClusterExposedPorts(e, kf),
 	}
 	sch, err := scheduler.NewScheduler(tasks, s, e, core)
 	if err != nil {
