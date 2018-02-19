@@ -532,7 +532,7 @@
         $scope.deleteInstanceBtnText = '删除中 ...';
         $scope.isInstanceBeingDeleted = true;
       } else {
-        $scope.deleteInstanceBtnText = 'Delete';
+        $scope.deleteInstanceBtnText = '删除';
         $scope.isInstanceBeingDeleted = false;
       }
     }
