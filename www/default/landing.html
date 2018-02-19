@@ -26,7 +26,7 @@
         <nav>
           <ul class="nav nav-pills float-right">
             <li class="nav-item">
-              <a class="nav-link" href="https://github.com/lean-soft/play-with-docker">Contribute</a>
+              <a class="nav-link" href="https://github.com/lean-soft/play-with-docker">提供反馈</a>
             </li>
           </ul>
         </nav>
@@ -34,8 +34,8 @@
 
       <div class="jumbotron" ng-cloak> 
         <img src="https://www.docker.com/sites/default/files/Whale%20Logo332_5.png" />
-        <h1 class="display-3">Play with Docker</h1>
-        <p class="lead">A simple, interactive and fun playground to learn Docker</p>
+        <h1 class="display-3">Docker 实验室</h1>
+        <p class="lead">简单易用的线docker实验室环境，快速学习docker常用操作</p>
         <div ng-hide="loggedIn" class="btn-group" role="group">
           <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Login
@@ -45,7 +45,7 @@
           </div>
         </div>        
         <form id="landingForm" method="POST" action="/">
-            <p ng-show="loggedIn"><a class="btn btn-lg btn-success" href="#" ng-click="start()" role="button">Start</a></p>
+            <p ng-show="loggedIn"><a class="btn btn-lg btn-success" href="#" ng-click="start()" role="button">开始实验</a></p>
                 <input id="stack" type="hidden" name="stack" value=""/>
                 <input id="stack_name" type="hidden" name="stack_name" value=""/>
                 <input id="image_name" type="hidden" name="image_name" value=""/>
@@ -54,13 +54,21 @@
 
       <div class="row marketing">
         <div class="col-lg-12">
-            <p>Play with Docker (PWD) is a project hacked by <a href="https://www.twitter.com/marcosnils">Marcos Liljedhal</a> and <a href="https://www.twitter.com/xetorthio">Jonathan Leibiusky</a> and sponsored by Docker Inc.</p>
-            <p>PWD is a Docker playground which allows users to run Docker commands in a matter of seconds. It gives the experience of having a free Alpine Linux Virtual Machine in browser, where you can build and run Docker containers and even create clusters in <a href="https://docs.docker.com/engine/swarm/">Docker Swarm Mode</a>. Under the hood Docker-in-Docker (DinD) is used to give the effect of multiple VMs/PCs. In addition to the playground, PWD also includes a training site composed of a large set of Docker labs and quizzes from beginner to advanced level available at <a href="http://training.play-with-docker.com/">training.play-with-docker.com</a>.</p>
+            <p>Play with Docker (PWD) 是由 <a href="https://www.twitter.com/marcosnils">Marcos Liljedhal</a> 和 <a href="https://www.twitter.com/xetorthio">Jonathan Leibiusky</a> 两位工程师在Docker Inc.的支援下创建的。</p>
+            <p>PWD 是一个docker在线使用环境，允许你快速运行任何docker命令。
+                通过提供基于浏览器访问的免费Alpine Linux虚拟，你可以快速构建和运行docker容器并且创建
+                基于 <a href="https://docs.docker.com/engine/swarm/">Docker Swarm 模式</a>的服务器集群。
+                在后台，我们使用 Docker-in-Docker(DinD) 技术，通过容器嵌套提供快速创建主机环境来运行Docker的能力。
+                除了本实验室以外，我们还提供了大量的培训教程和小测验帮助你逐步提供自己的docker实操能力 <a href="https://docs.devopshub.cn">DevOps文档中心</a>。
+            </p>
+            <p>
+                Play-with-Docker.cn 是由 LEANSOFT 实现了中文本地化的 PWD 版本，托管于微软Azure世纪互联中国版上，旨在帮助中国的技术人员快速熟悉并学习docker的使用技巧。
+            </p>
         </div>
       </div>
 
       <footer class="footer">
-        <p>&copy; Play with Docker 2017</p>
+        <p>&copy; Play with Docker 2017 & &copy; LEANSOFT 2018</p>
       </footer>
 
     </div> 
@@ -85,6 +93,9 @@
                 $scope.user = null;
 
                 function checkLoggedIn() {
+                    // just disable login for now
+                    $scope.loggedIn = true;
+                    /*
                     $http({
                         method: 'GET',
                         url: '/users/me'
@@ -102,6 +113,7 @@
                         $scope.user = null;
                         $scope.loggedIn = false;
                     });
+                    */
                 }
 
                 checkLoggedIn();
