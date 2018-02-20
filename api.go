@@ -20,7 +20,9 @@ import (
 )
 
 func main() {
+
 	config.ParseFlags()
+	config.PlaygroundDomain = "play-with-docker.cn"
 
 	e := initEvent()
 	s := initStorage()
