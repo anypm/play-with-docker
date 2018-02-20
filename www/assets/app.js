@@ -45,7 +45,7 @@
             $scope.uploadProgress = 0;
             return
           }
-          $scope.uploadMessage = "正在上传文件Uploading file(s) "+ file.name + "。 已经完成" + (total - files.length) + "， 总大小"+ total ;
+          $scope.uploadMessage = "正在上传文件 "+ file.name + "。 已经完成" + (total - files.length) + "， 总大小"+ total ;
           let upload = Upload.upload({url: '/sessions/' + $scope.sessionId + '/instances/' + $scope.selectedInstance.name + '/uploads', data: {file: file}, method: 'POST'})
             .then(function(){}, function(){}, function(evt) {
               $scope.uploadProgress = parseInt(100.0 * evt.loaded / evt.total);
