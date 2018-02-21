@@ -23,7 +23,7 @@ func main() {
 
 	config.ParseFlags()
 	//todo: allow reading configuration from file or env-var
-	config.PlaygroundDomain = "localhost"
+	config.PlaygroundDomain = "play-with-k8s.cn"
 	config.DefaultDinDImage = "franela/k8s"
 
 	e := initEvent()
