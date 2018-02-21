@@ -280,7 +280,7 @@
         });
 
         socket.on('session end', function() {
-          $scope.showAlert('会话已结束！', '你的会话已经结束，所有实例将被删除.', '#sessionEnd', function() {
+          $scope.showAlert('实验已结束！', '你的实验会话已经结束，所有实例将被删除.', '#sessionEnd', function() {
             window.location.href = '/';
           });
           $scope.isAlive = false;

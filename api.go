@@ -22,12 +22,14 @@ import (
 func main() {
 
 	config.ParseFlags()
-	config.PlaygroundDomain = "play-with-docker.cn"
+	//todo: allow reading configuration from file or env-var
+	config.PlaygroundDomain = "localhost"
+	config.DefaultDinDImage = "franela/k8s"
 
 	e := initEvent()
 	s := initStorage()
 	df := initDockerFactory(s)
-	//kf := initK8sFactory(s)
+	kf := initK8sFactory(s)
 
 	ipf := provisioner.NewInstanceProvisionerFactory(provisioner.NewWindowsASG(df, s), provisioner.NewDinD(id.XIDGenerator{}, df, s))
 	sp := provisioner.NewOverlaySessionProvisioner(df)
@@ -39,8 +41,8 @@ func main() {
 		task.NewCheckSwarmPorts(e, df),
 		task.NewCheckSwarmStatus(e, df),
 		task.NewCollectStats(e, df, s),
-		//task.NewCheckK8sClusterStatus(e, kf),
-		//task.NewCheckK8sClusterExposedPorts(e, kf),
+		task.NewCheckK8sClusterStatus(e, kf),
+		task.NewCheckK8sClusterExposedPorts(e, kf),
 	}
 	sch, err := scheduler.NewScheduler(tasks, s, e, core)
 	if err != nil {
@@ -54,7 +56,15 @@ func main() {
 		log.Fatalf("Cannot parse duration %s. Got: %v", config.DefaultSessionDuration, err)
 	}
 
-	playground := types.Playground{Domain: config.PlaygroundDomain, DefaultDinDInstanceImage: config.DefaultDinDImage, AllowWindowsInstances: config.NoWindows, DefaultSessionDuration: d, AvailableDinDInstanceImages: []string{config.DefaultDinDImage}, Tasks: []string{".*"}}
+	playground := types.Playground{
+		Domain: config.PlaygroundDomain,
+		DefaultDinDInstanceImage:    config.DefaultDinDImage,
+		AllowWindowsInstances:       config.NoWindows,
+		DefaultSessionDuration:      d,
+		AvailableDinDInstanceImages: []string{config.DefaultDinDImage},
+		AssetsDir:                   "k8s",
+		Tasks:                       []string{".*"}}
+
 	if _, err := core.PlaygroundNew(playground); err != nil {
 		log.Fatalf("Cannot create default playground. Got: %v", err)
 	}

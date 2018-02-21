@@ -35,6 +35,7 @@ func Home(w http.ResponseWriter, r *http.Request) {
 	}
 
 	index := filepath.Join("./www", playground.AssetsDir, "/index.html")
+	log.Printf("Serving index page from %s", index)
 	if _, err := os.Stat(index); os.IsNotExist(err) {
 		index = "./www/default/index.html"
 	}
