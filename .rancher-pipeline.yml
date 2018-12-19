@@ -1,0 +1,10 @@
+stages:
+- name: build-stage
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: play-with-docker-build-image-demo
+      pushRemote: true
+      registry: 127.0.0.1:34142
+timeout: 60
